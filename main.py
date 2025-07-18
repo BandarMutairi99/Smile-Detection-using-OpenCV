@@ -1,10 +1,8 @@
 import cv2
 
-# تحميل كواشف الوجوه والابتسامة
 face_cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 smile_cascade = cv2.CascadeClassifier("haarcascade_smile.xml")
 
-# فتح الكاميرا
 cap = cv2.VideoCapture(0)
 
 while True:
@@ -14,7 +12,6 @@ while True:
 
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-    # كشف الوجوه
     faces = face_cascade.detectMultiScale(gray, 1.3, 5)
 
     for (x, y, w, h) in faces:
